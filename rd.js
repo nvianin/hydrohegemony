@@ -167,6 +167,16 @@ class reactionDiffusionRender {
         this.renderer.domElement.onpointerup = () => {
             this.shader.uniforms.mousedown.value = false;
         }
+
+        window.addEventListener("touchstart", e => {
+
+        })
+
+        window.addEventListener("touchmove", e => {
+            log(e)
+            this.shader.uniforms.mouse.value.x = e.changedTouches[0].clientX;
+            this.shader.uniforms.mouse.value.y = e.changedTouches[0].clientY;
+        })
     }
 
     render() {
