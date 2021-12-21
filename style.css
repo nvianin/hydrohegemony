@@ -1,0 +1,486 @@
+body,
+html {
+  /*  margin: -1px; */
+  /* margin: 100px; */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Suisse";
+  font-variant-numeric: tabular-nums lining-nums;
+  border-radius: 2px;
+  background-blend-mode: soft-light;
+  /* background-color: white; */
+  backface-visibility: hidden;
+
+  /* scroll-behavior: none; */
+
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  /* filter: invert(1); */
+  mix-blend-mode: difference;
+  /* filter: saturate(10000%); */
+  /* filter: blur(30px) contrast(10); */
+}
+
+#perspective-container {
+  /* display: none; */
+  perspective-origin: 50% 50%;
+  perspective: 32em;
+  transform-style: preserve-3d;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+}
+
+#vid-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.background-vid {
+  position: relative;
+  display: block;
+  /* right: 0;
+  bottom: 0; */
+  /* width: 25%; */
+  /* height: 56vh; */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  /* mix-blend-mode: color; */
+  filter: grayscale(100%);
+  opacity: 1;
+  z-index: -1;
+  /* background-image: url(./assets/textures/tv-noise.jpg);
+  background-blend-mode: soft-light; */
+}
+
+#counter {
+  /* position: fixed;
+  right: 50%;
+  top: 50%; */
+  text-align: center;
+  /* max-width: 90%; */
+  padding-left: 20px;
+  padding-right: 20px;
+  /* transform: translate(50%, -50%); */
+
+  /* background-color: #eee; */
+  /* backdrop-filter: blur(16px); */
+
+  /* font-size: 8vh; */
+  /* mix-blend-mode: multiply; */
+  /* background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+#counter-label {
+  /* font-size: 32pt; */
+  /* background-color: transparent;
+  text-align: center; */
+}
+
+#counter-background {
+  background-color: white;
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  width: 70%;
+  padding: 10px;
+
+  font-size: 10vw;
+  text-align: center;
+  user-select: none;
+  line-height: 9vw;
+  transition: 1s;
+
+  /* padding-left: 20px;
+  padding-right: 20px; */
+  border-radius: 20px;
+  transform: translate(50%, -50%);
+  mix-blend-mode: color-burn;
+}
+
+#grid-container {
+  display: flex;
+  z-index: 50;
+  flex-wrap: wrap;
+  row-gap: 0px;
+  align-content: center;
+  justify-content: start;
+  width: 130%;
+  top: -10%;
+  left: -10%;
+
+  margin: -1px;
+  /* height: 100%; */
+  /* mix-blend-mode: multiply; */
+  /* transition: 0.1s; */
+
+  position: fixed;
+  /* top: 8vw;
+  bottom: 10wv; */
+  transform-origin: 50vw 50vh;
+}
+
+.button-rim {
+  position: fixed;
+  z-index: 5000;
+  /* top: 7px; */
+  /* left: 7px; */
+  width: 50px;
+  height: 50px;
+  border-radius: 1000px;
+  outline: black dotted 2px;
+  /* background-color: pink; */
+}
+.button-body {
+  width: 40px;
+  height: 40px;
+  border-radius: 1000px;
+  background-color: black;
+  /* top: 12px; */
+  transform: translate(5px, 5px);
+  /* left: 12px; */
+  position: fixed;
+}
+.button-body:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+#nextPage {
+  left: 12px;
+  /* left: asdigja; */
+  top: 12px;
+}
+#infoPage {
+  right: 12px;
+  bottom: 12px;
+}
+
+#infoPane {
+  z-index: 999;
+  text-align: left;
+  overflow: scroll;
+  padding: 3px;
+  padding-top: 70px;
+  padding-left: 10px;
+  width: 34vw;
+  height: 100vh;
+  position: fixed;
+  left: 100vw;
+  transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+  background-color: #eaeae8;
+  color: #878787;
+  font-family: Review;
+  font-size: 3vh;
+  font-weight: 500;
+  background-blend-mode: difference;
+}
+
+.grid-element {
+  /* transform: rotate(9deg); */
+  width: 12vw;
+  height: 8vw;
+  /* max-width: 12vw; */
+  /* max-height: 8vw; */
+  display: flex;
+  /* background-image: url(./assets/textures/tv-noise.jpg); */
+  background-blend-mode: soft-light;
+  /* mix-blend-mode: multiply; */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  /* user-select: none; */
+  color: transparent;
+  /* transition: 0.1s ease-in-out; */
+  /* cursor: crosshair; */
+  transform-style: preserve-3d;
+  /* perspective: 100px; */
+}
+
+.video-child {
+  /* z-index: -1; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  /* cursor: default; */
+}
+
+.image-child,
+.video-child {
+  /* transition: 0.1s; */
+  animation: hue 50s linear infinite;
+  z-index: 11;
+}
+@keyframes hue {
+  0% {
+    filter: hue-rotate(0deg) saturate(0.7) invert(0);
+  }
+  47% {
+    filter: hue-rotate(180deg) saturate(1.3) invert(0.7);
+  }
+  53% {
+    filter: hue-rotate(180deg) saturate(1.3) invert(0.7);
+  }
+  100% {
+    filter: hue-rotate(360deg) saturate(0.7) invert(0);
+  }
+}
+
+.wide {
+  width: 24vw;
+}
+.tall {
+  height: 16vw;
+}
+.counter {
+  font-weight: normal;
+  font-size: 39pt;
+  user-select: none;
+  /* text-align: center; */
+  color: white;
+  /* font-variant-numeric: tabular-nums; */
+}
+
+.label {
+  user-select: none;
+  color: white;
+  font-family: "Review";
+  font-weight: lighter;
+  /* text-align: center; */
+  font-size: 15pt;
+  letter-spacing: 1pt;
+  overflow: visible;
+  width: 100%;
+  /* height: 200%; */
+  z-index: 5000;
+  /* mix-blend-mode: exclusion; */
+  background-color: transparent;
+}
+
+/* .grid-element:hover {
+  transform: rotateY(-10deg) rotateX(10deg);
+} */
+
+@keyframes grid-element-loop {
+  0% {
+    transform: rotate3d(1, -1, 0, 0deg);
+  }
+  50% {
+    transform: rotate3d(1, -1, 0, 15deg);
+  }
+  100% {
+    transform: rotate3d(-1, 1, 0, 15deg);
+  }
+}
+
+.QR {
+  object-fit: cover !important;
+  mix-blend-mode: difference;
+}
+
+.grid-child {
+  /* z-index: 1; */
+  /* position: relative;
+  top: 0px;
+  left: 0px;
+  width: auto; */
+  /* background-color: black; */
+  font-weight: bolder;
+  font-size: 18pt;
+  text-align: left;
+  color: black;
+  /* mix-blend-mode: difference; */
+  padding: 0.8%;
+  /* transition: 1s; */
+
+  /* vertical-align: bottom; */
+  /* transform: translate(0, 50%); */
+  /* mix-blend-mode: difference; */
+}
+
+.invisible {
+  opacity: 0;
+  /* cursor: default; */
+  /* background-color: red !important;
+  color: red !important; */
+}
+
+.align-mid {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.align-bot {
+  margin-top: auto;
+}
+.align-top {
+  margin-bottom: auto;
+}
+
+.wall {
+  display: block;
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  /* transform-style: preserve-3d;
+  transform: translateZ(90px); */
+  /* transform: rotateZ(35deg); */
+}
+.left-wall {
+  height: 100%;
+  background-color: black;
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  /* transform: rotateY(90deg) translateZ(-100px); */
+  /* transform: rotateY(90deg); */
+}
+.top-wall {
+  top: 0px;
+  width: 100%;
+  background-color: red;
+}
+.right-wall {
+  right: 0px;
+  height: 100%;
+  background-color: blue;
+  top: 0px;
+  right: 0px;
+}
+.bot-wall {
+  bottom: 0px;
+  width: 100%;
+  background-color: yellow;
+}
+
+#metaball_container {
+  /* filter: contrast(1); */
+  /* background-color: pink; */
+}
+
+#metaball_outer_container {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  /* mix-blend-mode: difference; */
+
+  filter: contrast(100);
+
+  background-color: linear-gradient(
+    90deg,
+    pink 0%,
+    lightblue 50%,
+    yellowgreen 100%
+  );
+}
+#metaball_inner_container {
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+}
+
+.metaball {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: grey;
+  /* backdrop-filter: blur(10px); */
+  z-index: -100;
+  position: absolute;
+}
+
+#debug_thing {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  font-size: 32pt;
+  font-weight: bolder;
+  mix-blend-mode: difference;
+  color: #fff;
+  opacity: 0;
+  user-select: none;
+}
+
+@font-face {
+  font-family: Plantin;
+  src: url(./assets/fonts/PlantinMTProRg.TTF);
+}
+
+@font-face {
+  font-family: Europe;
+  src: url(./assets/fonts/eur_normal.otf);
+}
+@font-face {
+  font-family: Linux Libertine;
+  src: url(./assets/fonts/LinLibertine_R.ttf);
+}
+@font-face {
+  font-family: Nimbus Sans;
+  src: url(./assets/fonts/NimbusSanL-Reg.otf);
+}
+
+@font-face {
+  font-family: Suisse;
+  src: url("./assets/fonts/Suisse\ BP\ Int'l\ Medium.otf");
+}
+
+@font-face {
+  font-family: Review;
+  src: url("./assets/fonts/ReviewMonoRegular.otf");
+}
+
+@media only screen and (min-width: 360px) and (max-width: 667px) {
+  #counter {
+    font-size: 8vh;
+  }
+  #debug_thing {
+    color: red;
+  }
+
+  #grid-container {
+    left: 0;
+  }
+
+  /* #infoPane {
+    width: 100vw;
+  } */
+  .grid-element {
+    width: 14vh;
+    height: 10vh;
+  }
+
+  .wide {
+    width: 28vh;
+  }
+  .tall {
+    height: 10vh;
+  }
+
+  .label {
+    font-size: 12pt;
+    width: 100%;
+    height: 100%;
+  }
+  .counter {
+    font-size: 12pt;
+  }
+
+  .grid-child {
+    font-size: 12pt;
+  }
+}

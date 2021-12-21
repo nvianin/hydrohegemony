@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "quaternion-to-euler": "^0.5.0",
+    "simplex-noise": "^3.0.0",
+    "three": "^0.135.0"
+  }
+}
