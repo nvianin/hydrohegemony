@@ -454,6 +454,8 @@ function changePage() {
     /*  log("reinit page") */
     initCounter()
     global_rot += 360
+    /* rd = new reactionDiffusionRender(12);
+    rd2 = new reactionDiffusionRender(6); */
     rd.reset();
     rd2.reset();
     /* document.querySelector("#perspective-container").style.transform = "rotateY(" + global_rot + "deg)"

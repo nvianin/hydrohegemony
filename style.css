@@ -75,6 +75,8 @@ canvas {
   /* max-width: 90%; */
   padding-left: 20px;
   padding-right: 20px;
+  /* mix-blend-mode: multiply;
+  color: white; */
   /* transform: translate(50%, -50%); */
 
   /* background-color: #eee; */
