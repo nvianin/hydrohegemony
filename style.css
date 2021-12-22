@@ -445,10 +445,10 @@ canvas {
   src: url("./assets/fonts/ReviewMonoRegular.otf");
 }
 
-@media only screen and (min-width: 250px) and (max-width: 667px) {
-  #counter {
-    font-size: 100%;
-  }
+@media only screen and (min-width: 360px) and (max-width: 667px) {
+  /* #counter {
+    font-size: 8vh;
+  } */
   #debug_thing {
     color: red;
   }
