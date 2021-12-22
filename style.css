@@ -445,9 +445,9 @@ canvas {
 }
 
 @media only screen and (min-width: 360px) and (max-width: 667px) {
-  #counter {
+  /* #counter {
     font-size: 8vh;
-  }
+  } */
   #debug_thing {
     color: red;
   }
