@@ -4,8 +4,8 @@ class reactionDiffusionRender {
         this.framebuffer = new THREE.WebGLRenderTarget(
             window.innerWidth,
             window.innerHeight, {
-                minFilter: THREE.LinearFilter,
-                magFilter: THREE.LinearFilter,
+                minFilter: THREE.NearestFilter,
+                magFilter: THREE.NearestFilter,
                 wrapS: THREE.ClampToEdgeWrapping,
                 wrapT: THREE.ClampToEdgeWrapping,
                 format: THREE.RGBAFormat
@@ -175,7 +175,7 @@ class reactionDiffusionRender {
         })
 
         window.addEventListener("touchmove", e => {
-            log(e)
+            /* log(e) */
             this.shader.uniforms.mouse.value.x = e.changedTouches[0].clientX;
             this.shader.uniforms.mouse.value.y = e.changedTouches[0].clientY;
         })
