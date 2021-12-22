@@ -72,6 +72,18 @@ window.onload = () => {
     initCounter();
     /* initGrid(16, 16); */
 
+    if (window.innerWidth > window.innerHeight) {
+        infoOpenText = "66vw"
+        infoCloseText = "100vw"
+        log("wide")
+    } else {
+        infoOpenText = "0vw"
+        infoCloseText = "100vw"
+        infoPane.style.width = "100vw"
+        log("tall")
+    }
+
+
     document.querySelector("#nextPage").onclick = (() => {
         /* log("fuck") */
         changePage()

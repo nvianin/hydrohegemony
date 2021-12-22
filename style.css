@@ -169,6 +169,7 @@ canvas {
 }
 
 #infoPane {
+  user-select: all;
   z-index: 999;
   text-align: left;
   overflow: scroll;
