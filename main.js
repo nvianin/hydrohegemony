@@ -1,6 +1,10 @@
 let count = 0;
 let max = 940;
 
+// A FAIRE
+// AJOUTER UNE ANIMATION DE SLIDE IN / SLIDE OUT SUR LES DATA POUR ACCENTUER LE FAIT QU'ELLES CHANGENT
+// FAIRE QUE LE BOUTON RESET CACHE LE INFOPANE
+
 
 Math.clamp = (val, min, max) => {
     return Math.max(Math.min(val, max), min);
