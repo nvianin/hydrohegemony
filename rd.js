@@ -5,7 +5,9 @@ class reactionDiffusionRender {
             window.innerWidth,
             window.innerHeight, {
                 minFilter: THREE.LinearFilter,
-                magFilter: THREE.NearestFilter,
+                magFilter: THREE.LinearFilter,
+                wrapS: THREE.ClampToEdgeWrapping,
+                wrapT: THREE.ClampToEdgeWrapping,
                 format: THREE.RGBAFormat
             }
         )
