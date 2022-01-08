@@ -146,14 +146,14 @@ canvas {
   width: 50px;
   height: 50px;
   border-radius: 1000px;
-  outline: black dotted 2px;
+  outline: grey dotted 2px;
   /* background-color: pink; */
 }
 .button-body {
   width: 40px;
   height: 40px;
   border-radius: 1000px;
-  background-color: black;
+  background-color: lightgrey;
   /* top: 12px; */
   transform: translate(5px, 5px);
   /* left: 12px; */
