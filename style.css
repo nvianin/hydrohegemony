@@ -175,10 +175,10 @@ canvas {
   z-index: 100000;
   text-align: left;
   overflow: scroll;
-  padding: 3px;
-  padding-top: 5px;
+  padding: 5px;
+  padding-top: 7px;
   padding-left: 10px;
-  width: 34vw;
+  width: 67vw;
   height: 100vh;
   position: fixed;
   left: 100vw;
@@ -195,22 +195,27 @@ canvas {
 
   background-blend-mode: difference;
 }
-#infoPane::first-line {
-  font-size: 4vh;
-}
 #mockup-book {
-  width: 50%;
+  width: 90%;
   display: block;
 }
 #price {
+  display: flex;
+  justify-content: center;
 }
 #buy-button {
+  position: absolute;
+  right: 50%;
+  transform: translate(50%, 0%);
   background-color: #878787;
   border-radius: 10px;
   color: white;
   text-align: center;
-  height: 5%;
-  width: 30%;
+  height: auto;
+  width: 10%;
+  padding: 9px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 #buy-button:hover {
   cursor: pointer;
@@ -223,12 +228,25 @@ canvas {
 
 #paneContainer {
   display: flex;
+  flex-wrap: wrap;
   /* padding: 12px; */
   /* overflow: scroll; */
   user-select: none;
+  justify-content: center;
+  /* position: absolute;
+  bottom: 0px; */
 }
 #paneContainer > * {
-  padding: 12px;
+  /* padding: 12px; */
+  /* border: 6px; */
+  margin: 12px;
+}
+#paneSeparator {
+  height: 60px;
+  width: 100%;
+}
+#first-line {
+  font-size: 4vh;
 }
 
 .grid-element {

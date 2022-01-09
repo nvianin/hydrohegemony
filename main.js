@@ -68,7 +68,7 @@ let metaball_inner;
 
 let infoOpen = false;
 let infoPane;
-let infoOpenText = "66vw"
+let infoOpenText = "33vw"
 let infoCloseText = "100vw"
 
 window.onload = () => {
@@ -78,7 +78,7 @@ window.onload = () => {
     /* initGrid(16, 16); */
 
     if (window.innerWidth > window.innerHeight) {
-        infoOpenText = "66vw"
+        infoOpenText = "33vw"
         infoCloseText = "100vw"
         log("wide")
     } else {
