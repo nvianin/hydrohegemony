@@ -377,6 +377,8 @@ let videos = [
     /* "./assets/videos/background_metaballs0001-0718.mp4", */
     /* "./metaballs_time0001-1406.webm", */
     "./meta2.webm",
+    "./background_curtains0001-0360.webm",
+    "./background_mat0001-0320.webm"
     /* "./background_metaballs0001-0360.mp4" */
     /* "./assets/videos/bacteria3_0001-0250.mp4", */
     /* "././assets/videos/bacteria4_20001-0250.mp4", */
@@ -418,18 +420,29 @@ let images = [
     /* "./assets/textures/images",
     "./assets/textures/images", */
 ]
+let videoID = 0;
 
 function randomizeVideos() {
-    try {
+
+
+    if (videoID < videos.length - 1) {
+        videoID++
+    } else {
+        videoID = 0;
+    }
+
+    document.getElementsByClassName("background-vid")[0].src = videos[videoID]
+
+    /* try {
         let videos = document.getElementsByClassName("background-vid");
         for (vid of videos) {
-            /* log(vid) */
+            log(vid)
             vid.src = randomVideo();
         }
 
     } catch (e) {
         log("could not find video", e)
-    }
+    } */
 }
 
 function randomVideo() {
