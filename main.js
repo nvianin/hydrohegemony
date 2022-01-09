@@ -1,5 +1,6 @@
 let count = 0;
 let max = 940;
+let infoPaneOpenClose;
 
 // A FAIRE
 // AJOUTER UNE ANIMATION DE SLIDE IN / SLIDE OUT SUR LES DATA POUR ACCENTUER LE FAIT QU'ELLES CHANGENT
@@ -92,20 +93,23 @@ window.onload = () => {
         /* log("fuck") */
         changePage()
     })
-    document.querySelector("#infoPage").onclick = (() => {
+
+    infoPaneOpenClose = () => {
         if (infoOpen) {
             infoPane.style.left = infoCloseText
         } else {
             infoPane.style.left = infoOpenText
         }
         infoOpen = !infoOpen
-    })
+    }
+    document.querySelector("#infoPage").onclick = infoPaneOpenClose
 
     document.body.style.backgroundColor = black;
     /* document.body.style.backgroundImage = "url(./assets/textures/tv-noise.jpg)"; */
     document.body.style.backgroundPosition = Math.random() * 1000 + "px " + Math.random() * 1000 + "px";
 
     randomizeVideos();
+    changeBackground()
 
     try {
         gyro = new AbsoluteOrientationSensor({
@@ -370,7 +374,8 @@ let videos = [
         "./assets/videos/Iridescent Foam-1.mp4",
         "./assets/videos/Lagoon-1.mp4",
         "./assets/videos/loopwaves.mp4", */
-    "./assets/videos/background_metaballs0001-0718.mp4"
+    /* "./assets/videos/background_metaballs0001-0718.mp4", */
+    "./metaballs_time0001-1406.webm",
     /* "./background_metaballs0001-0360.mp4" */
     /* "./assets/videos/bacteria3_0001-0250.mp4", */
     /* "././assets/videos/bacteria4_20001-0250.mp4", */
@@ -456,7 +461,12 @@ let rd2 = new reactionDiffusionRender(6);
 
 function changePage() {
     /*  log("reinit page") */
+    if (infoOpen) {
+        infoPaneOpenClose()
+    }
     initCounter()
+
+    changeBackground()
     global_rot += 360
     /* rd = new reactionDiffusionRender(12);
     rd2 = new reactionDiffusionRender(6); */
@@ -491,6 +501,15 @@ function changePage() {
     }
     /* initGrid(16, 16) */
     randomizeVideos()
+}
+
+function changeBackground() {
+    /* log("hue-rotate(" + Math.floor(Math.random() * 360) + "deg)") */
+    document.querySelector(".background-vid").style.filter =
+        "hue-rotate(" + Math.floor(Math.random() * 360) + "deg)" +
+        " " +
+        "grayscale(88%)"
+    log(document.querySelector(".background-vid").style.filter)
 }
 
 let startTime = Date.now()

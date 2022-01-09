@@ -56,15 +56,11 @@ canvas {
   width: 100%;
   object-fit: cover;
   /* mix-blend-mode: color; */
-  filter: grayscale(100%) /* invert(1) */;
+  filter: grayscale(90%) /* invert(1) */;
   opacity: 1;
   z-index: -1;
   /* background-image: url(./assets/textures/tv-noise.jpg);
   background-blend-mode: soft-light; */
-}
-
-#mockup-book {
-  width: 100%;
 }
 
 #counter {
@@ -176,7 +172,7 @@ canvas {
 
 #infoPane {
   user-select: all;
-  z-index: 999;
+  z-index: 100000;
   text-align: left;
   overflow: scroll;
   padding: 3px;
@@ -186,13 +182,53 @@ canvas {
   height: 100vh;
   position: fixed;
   left: 100vw;
-  transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+  /* transition: cubic-bezier(1, 0, 0, 1) 0.3s; */
   background-color: #eaeae8;
+
   color: #878787;
   font-family: Review;
-  font-size: 3vh;
+  font-size: 2.4vh;
   font-weight: 500;
+  hyphens: auto;
+  line-break: auto;
+  letter-spacing: -0.2px;
+
   background-blend-mode: difference;
+}
+#infoPane::first-line {
+  font-size: 4vh;
+}
+#mockup-book {
+  width: 50%;
+  display: block;
+}
+#price {
+}
+#buy-button {
+  background-color: #878787;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  height: 5%;
+  width: 30%;
+}
+#buy-button:hover {
+  cursor: pointer;
+  background-color: #323232;
+  color: white;
+}
+#description {
+  display: block;
+}
+
+#paneContainer {
+  display: flex;
+  /* padding: 12px; */
+  /* overflow: scroll; */
+  user-select: none;
+}
+#paneContainer > * {
+  padding: 12px;
 }
 
 .grid-element {
@@ -268,7 +304,7 @@ canvas {
   font-weight: lighter;
   /* text-align: center; */
   font-size: 15pt;
-  letter-spacing: 1pt;
+  /* letter-spacing: 1pt; */
   overflow: visible;
   width: 100%;
   /* height: 200%; */
