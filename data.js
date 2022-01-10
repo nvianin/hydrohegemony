@@ -37,20 +37,36 @@ class DataCounter {
             this.label = tryFindFree(this.label, 50)
         }
 
-        this.data = data[this.label];
+        this.data = (data[this.label]);
         this.dom = element;
         this.domLabel = labelElement;
 
-        this.dom.textContent = this.getData();
-        this.domLabel.textContent = this.label + " today.";
+        /* this.dom.textContent = this.getData(); */
+        this.dataBuffer = this.getData();
+        log(this.dataBuffer)
+        this.label += " today."
+        this.label = this.label.split("")
+        this.initialized = false;
+        /* this.domLabel.textContent = this.label; */
+        this.interval = setInterval(() => {
+            this.dom.textContent += this.data.splice(0, 1);
+            this.domLabel.textContent += this.label.splice(0, 1);
+
+            if (this.label.length <= 0) {
+                clearInterval(this.interval);
+                this.initialized = true;
+            }
+        }, 77);
 
         this.delay = Math.floor(Math.random() * 350);
     }
 
     update() {
-        setTimeout(() => {
-            this.dom.textContent = this.getData();
-        }, this.delay)
+        if (this.initialized) {
+            setTimeout(() => {
+                this.dom.textContent = this.getData();
+            }, this.delay)
+        }
     }
 
     getData() {

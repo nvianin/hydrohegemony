@@ -365,6 +365,8 @@ function isVisible(element) {
     return false;
 }
 
+let videoInverted = [1, 1, 0];
+
 let videos = [
     /*     "./test_video3_2.mp4",
         "./assets/videos/bacteria2_render.mp4",
@@ -421,6 +423,7 @@ let images = [
     "./assets/textures/images", */
 ]
 let videoID = 0;
+videoID = Math.floor(Math.random() * videos.length)
 
 function randomizeVideos() {
 
@@ -522,7 +525,10 @@ function changeBackground() {
     document.querySelector(".background-vid").style.filter =
         "hue-rotate(" + Math.floor(Math.random() * 360) + "deg)" +
         " " +
-        "grayscale(88%)"
+        "grayscale(88%)" +
+        " " +
+        "invert(" + videoInverted[videoID] + ")"
+
     log(document.querySelector(".background-vid").style.filter)
 }
 
@@ -615,7 +621,7 @@ function update() {
     //     }
     // }
 
-    let images = document.getElementsByClassName("image-child")
+    /* let images = document.getElementsByClassName("image-child")
     let speed = gyro_used ? 200 : 100;
     let x_displace = gyro_used ? gyro_x : gyro_y;
     let y_displace = gyro_used ? gyro_z : gyro_x;
@@ -628,6 +634,6 @@ function update() {
     document.body.style.backgroundPosition =
         (x_displace) * 10 + (time / 250) + "px" +
         " " +
-        (y_displace) * 10 + (time / 250) + "px"
+        (y_displace) * 10 + (time / 250) + "px" */
 
 }
