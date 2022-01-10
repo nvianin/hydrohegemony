@@ -42,14 +42,14 @@ class DataCounter {
         this.domLabel = labelElement;
 
         /* this.dom.textContent = this.getData(); */
-        this.dataBuffer = this.getData();
+        this.dataBuffer = (this.getData() + "").split("");
         log(this.dataBuffer)
         this.label += " today."
         this.label = this.label.split("")
         this.initialized = false;
         /* this.domLabel.textContent = this.label; */
         this.interval = setInterval(() => {
-            this.dom.textContent += this.data.splice(0, 1);
+            this.dom.textContent += this.dataBuffer.splice(0, 1);
             this.domLabel.textContent += this.label.splice(0, 1);
 
             if (this.label.length <= 0) {
