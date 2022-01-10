@@ -47,25 +47,29 @@ class DataCounter {
         this.label += " today."
         this.label = this.label.split("")
         this.initialized = false;
+        this.dom.textContent = ""
+        this.domLabel.textContent = ""
         /* this.domLabel.textContent = this.label; */
         this.interval = setInterval(() => {
             this.dom.textContent += this.dataBuffer.splice(0, 1);
             this.domLabel.textContent += this.label.splice(0, 1);
 
             if (this.label.length <= 0) {
-                clearInterval(this.interval);
-                this.initialized = true;
+                setTimeout(() => {
+                    clearInterval(this.interval);
+                    this.initialized = true;
+                }, 800)
             }
-        }, 77);
+        }, 40);
 
         this.delay = Math.floor(Math.random() * 350);
     }
 
     update() {
         if (this.initialized) {
-            setTimeout(() => {
-                this.dom.textContent = this.getData();
-            }, this.delay)
+            /* setTimeout(() => { */
+            this.dom.textContent = this.getData();
+            /* }, this.delay) */
         }
     }
 

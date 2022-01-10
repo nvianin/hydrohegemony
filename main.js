@@ -326,6 +326,11 @@ function initGrid(_x, _y) {
 function initCounter() {
     counter = document.querySelector("#counter")
     let counterLabel = document.querySelector("#counter-label")
+    if (counter.dataCounter && counter.dataCounter.interval) {
+        clearInterval(counter.dataCounter.interval);
+    }
+    counter.innerHTML = ""
+    counterLabel.innerHTML = ""
     if (counter) {
         // cb =
         //     setInterval(() => {
@@ -365,7 +370,7 @@ function isVisible(element) {
     return false;
 }
 
-let videoInverted = [1, 1, 0];
+let videoInverted = [0, 1, 1];
 
 let videos = [
     /*     "./test_video3_2.mp4",
@@ -423,7 +428,7 @@ let images = [
     "./assets/textures/images", */
 ]
 let videoID = 0;
-videoID = Math.floor(Math.random() * videos.length)
+/* videoID = Math.floor(Math.random() * videos.length) */
 
 function randomizeVideos() {
 
@@ -433,6 +438,7 @@ function randomizeVideos() {
     } else {
         videoID = 0;
     }
+    log(videoID, videoInverted[videoID])
 
     document.getElementsByClassName("background-vid")[0].src = videos[videoID]
 
@@ -483,6 +489,7 @@ function changePage() {
     }
     initCounter()
 
+    randomizeVideos()
     changeBackground()
     global_rot += 360
     /* rd = new reactionDiffusionRender(12);
@@ -517,7 +524,6 @@ function changePage() {
         grid.removeChild(grid.children[0]);
     }
     /* initGrid(16, 16) */
-    randomizeVideos()
 }
 
 function changeBackground() {
