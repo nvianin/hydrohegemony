@@ -19,6 +19,13 @@ html {
   cursor: crosshair;
 }
 
+a {
+  color: #878787;
+}
+a:visited {
+  color: #323232;
+}
+
 canvas {
   position: fixed;
   left: 0;

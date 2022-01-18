@@ -384,8 +384,8 @@ let videos = [
     /* "./assets/videos/background_metaballs0001-0718.mp4", */
     /* "./metaballs_time0001-1406.webm", */
     "./meta2.webm",
-    "./background_curtains0001-0360.webm",
-    "./background_mat0001-0320.webm"
+    /* "./background_curtains0001-0360.webm", */
+    /* "./background_mat0001-0320.webm" */
     /* "./background_metaballs0001-0360.mp4" */
     /* "./assets/videos/bacteria3_0001-0250.mp4", */
     /* "././assets/videos/bacteria4_20001-0250.mp4", */
