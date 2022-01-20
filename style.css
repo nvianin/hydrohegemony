@@ -275,12 +275,13 @@ canvas {
 #gallery {
   /* display: flex; */
   width: 100%;
-  overflow-x: scroll;
   /* object-fit: contain; */
 }
 #gallery_container {
   top: 0px;
   display: flex;
+  overflow-x: scroll;
+  /* transform: translate(-50px, 0); */
   /* justify-content: center; */
 }
 #gallery > img {
