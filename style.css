@@ -182,10 +182,10 @@ canvas {
   z-index: 100000;
   text-align: left;
   overflow: scroll;
-  padding: 5px;
-  padding-top: 7px;
-  padding-left: 10px;
-  width: 67vw;
+  /* padding: 20px; */
+  /* padding-top: 7px;
+  padding-left: 10px; */
+  width: 33vw;
   height: 100vh;
   position: fixed;
   left: 100vw;
@@ -199,8 +199,18 @@ canvas {
   hyphens: auto;
   line-break: auto;
   letter-spacing: -0.2px;
+  transition: 0.5s;
+  overflow-x: hidden;
 
   background-blend-mode: difference;
+}
+
+* > #infoPane {
+  user-select: none;
+  /* margin: 20px; */
+}
+#pane_text {
+  padding: 15px 15px 10px 15px;
 }
 #mockup-book {
   width: 90%;
@@ -235,6 +245,86 @@ canvas {
   display: block;
 }
 
+#description_block {
+  background-color: #878787;
+  color: white;
+}
+#description_stuff {
+  padding: 15px 15px 10px 15px;
+  font-size: 2.3vh;
+}
+#description_stuff2 {
+  padding: 15px 15px 10px 15px;
+  font-size: 2.3vh;
+  list-style-type: none;
+}
+
+#description_stuff2 > li {
+  padding: 10px 0px 10px 0px;
+  border-bottom: 1px solid #323232;
+}
+#description_stuff2 > li:last-child {
+  border-bottom: none;
+}
+
+#title {
+  font-size: 4vh;
+  padding: 15px 15px 10px 15px;
+}
+
+#gallery {
+  /* display: flex; */
+  width: 100%;
+  overflow-x: scroll;
+  /* object-fit: contain; */
+}
+#gallery_container {
+  top: 0px;
+  display: flex;
+  /* justify-content: center; */
+}
+#gallery > img {
+}
+.arrow_circle {
+  /* top: 0px; */
+  position: absolute;
+  border-radius: 400px;
+  background-color: #323232;
+  width: 5vh;
+  height: 5vh;
+  transform: translate(0px, 50%);
+  text-align: center;
+}
+#left_circle {
+  left: 5px;
+}
+#right_circle {
+  right: 5px;
+}
+.arrow {
+  font-size: 8vh;
+  font-family: Suisse;
+  /* color: rgba(255, 255, 255, 0.32); */
+  color: #eaeae8;
+  /* backdrop-filter: blur(2px); */
+  position: absolute;
+  top: 0px;
+  height: 20px;
+  width: 20px;
+  mix-blend-mode: difference;
+}
+.arrow:hover {
+  color: white;
+}
+#forward_arrow {
+  /* transform: translate(-0.8vh, 0vh); */
+  right: 5px;
+}
+#backwards_arrow {
+  /* transform: translate(0.8vh, 0px); */
+  left: 5px;
+}
+
 #paneContainer {
   display: flex;
   flex-wrap: wrap;
@@ -255,7 +345,8 @@ canvas {
   width: 100%;
 }
 #first-line {
-  font-size: 4vh;
+  padding: 0px 10px 7px 0px;
+  font-size: 3vh;
 }
 
 .grid-element {

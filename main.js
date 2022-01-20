@@ -44,6 +44,12 @@ document.addEventListener("mousemove", e => {
     mouse_y = e.clientY;
 })
 
+document.addEventListener("click", e => {
+    if (e.target.tagName == "CANVAS" && infoOpen) {
+        infoPaneOpenClose()
+    }
+})
+
 function qte(quat) {
 
     const q0 = quat[0];
@@ -78,16 +84,17 @@ window.onload = () => {
     /* initGrid(16, 16); */
 
     if (window.innerWidth > window.innerHeight) {
-        infoOpenText = "33vw"
+        infoOpenText = "67vw"
         infoCloseText = "100vw"
         log("wide")
+        document.querySelector("#infoPage").style.zIndex = 5000;
     } else {
         infoOpenText = "0vw"
         infoCloseText = "100vw"
         infoPane.style.width = "100vw"
+        document.querySelector("#infoPage").style.zIndex = 100001;
         log("tall")
     }
-
 
     document.querySelector("#nextPage").onclick = (() => {
         /* log("fuck") */
@@ -102,6 +109,7 @@ window.onload = () => {
         }
         infoOpen = !infoOpen
     }
+    infoPaneOpenClose()
     document.querySelector("#infoPage").onclick = infoPaneOpenClose
 
     document.body.style.backgroundColor = black;
