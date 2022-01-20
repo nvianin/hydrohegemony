@@ -147,7 +147,7 @@ window.onload = () => {
         }
         infoOpen = !infoOpen
     }
-    infoPaneOpenClose()
+    /* infoPaneOpenClose() */
     document.querySelector("#infoPage").onclick = infoPaneOpenClose
 
     document.body.style.backgroundColor = black;
