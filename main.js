@@ -77,7 +77,45 @@ let infoPane;
 let infoOpenText = "33vw"
 let infoCloseText = "100vw"
 
+let currentScroll = 0;
+let imageNumber = 34
+
+
 window.onload = () => {
+
+    let scrollElem = document.querySelector("#gallery_container")
+    scrollElem.scroll(0, 0);
+    let scroll = amt => {
+        if (currentScroll < imageNumber - 1) {
+            currentScroll = Math.floor(
+                Math.ceil(scrollElem.scrollLeft) /
+                (scrollElem.scrollWidth / imageNumber)
+            )
+        }
+
+
+        if (currentScroll + amt >= imageNumber) {
+            currentScroll = 0;
+        } else if (currentScroll + amt < 0) {
+            currentScroll = imageNumber;
+        } else {
+            currentScroll += amt
+        }
+        let scrollPos = scrollElem.scrollWidth / imageNumber * currentScroll;
+        scrollElem.scroll(scrollPos, 0)
+        log(currentScroll, scrollPos)
+    }
+
+    document.querySelector("#forward_arrow").onclick = () => {
+        log("forward")
+        scroll(+1)
+
+    }
+    document.querySelector("#backwards_arrow").onclick = () => {
+        log("backwards")
+        scroll(-1)
+    }
+
     infoPane = document.querySelector("#infoPane")
     grid = document.querySelector("#grid-container");
     initCounter();
