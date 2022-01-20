@@ -416,7 +416,7 @@ function isVisible(element) {
     return false;
 }
 
-let videoInverted = [0, 1, 1];
+let videoInverted = [0, 0, 0];
 
 let videos = [
     /*     "./test_video3_2.mp4",
@@ -430,6 +430,10 @@ let videos = [
     /* "./assets/videos/background_metaballs0001-0718.mp4", */
     /* "./metaballs_time0001-1406.webm", */
     "./meta2.webm",
+    "./background_meta_3_new0001-0360.webm",
+    "./background_meta_2_new0001-0360.webm"
+    /* "./background_metaballs_20001-0360.mp4", */
+    /* "./background_metaballs_30001-0360.webm", */
     /* "./background_curtains0001-0360.webm", */
     /* "./background_mat0001-0320.webm" */
     /* "./background_metaballs0001-0360.mp4" */
