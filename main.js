@@ -115,6 +115,13 @@ window.onload = () => {
         log("backwards")
         scroll(-1)
     }
+    log(window.innerWidth / window.innerHeight)
+    if (window.innerWidth / window.innerHeight <= 1.65) {
+        document.querySelectorAll("#mockup-book").forEach(img => {
+            img.style.maxHeight = "259px";
+            log(img)
+        })
+    }
 
     infoPane = document.querySelector("#infoPane")
     grid = document.querySelector("#grid-container");
@@ -430,8 +437,8 @@ let videos = [
     /* "./assets/videos/background_metaballs0001-0718.mp4", */
     /* "./metaballs_time0001-1406.webm", */
     "./meta2.webm",
-    "./background_meta_3_new0001-0360.webm",
-    "./background_meta_2_new0001-0360.webm"
+    "./meta20001-0975.webm",
+    "./meta30001-0975.webm"
     /* "./background_metaballs_20001-0360.mp4", */
     /* "./background_metaballs_30001-0360.webm", */
     /* "./background_curtains0001-0360.webm", */
